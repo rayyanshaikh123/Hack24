@@ -41,17 +41,14 @@ Router.post("/", [body("email").isEmail(), body("phone_no").isLength({ min: 10 }
 });
 
 //authentcate user login api/auth/login
-Router.post('/login', [
-  body("email").isEmail(), 
-  body("password").isLength({ min: 7 })
-], async (req, res) => {
+Router.post("/login", [body("email").isEmail(), body("password").isLength({ min: 7 })], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  
+
   const { email, password } = req.body;
-  
+
   try {
     let user = await User.findOne({ email });
     if (!user) {
@@ -76,6 +73,5 @@ Router.post('/login', [
     res.status(500).send("Server Error");
   }
 });
-
 
 module.exports = Router;
