@@ -7,7 +7,7 @@ const User = require("../Models/User");
 const { body, validationResult } = require("express-validator");
 Router.post("/", [body("email").isEmail(), body("phone_no").isLength({ min: 10 }), body("password").isLength({ min: 7 })], async (req, res) => {
   try {
-    //validating the values first then accordingly inserting the data in db
+    // route 1validating the values first then accordingly inserting the data in db
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).errors.array();
@@ -40,7 +40,7 @@ Router.post("/", [body("email").isEmail(), body("phone_no").isLength({ min: 10 }
   }
 });
 
-//authentcate user login api/auth/login
+//  route 2  authentcate user login api/auth/login
 Router.post("/login", [body("email").isEmail(), body("password").isLength({ min: 7 })], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -73,5 +73,18 @@ Router.post("/login", [body("email").isEmail(), body("password").isLength({ min:
     res.status(500).send("Server Error");
   }
 });
+// route 3 get user data loggedin 
+Router.post("/", [body("email").isEmail(), body("password").isLength({ min: 7 })],
+ async (req, res) => {
 
+try{
+  userid='tdjfh';
+  const user = await user.findById(userid).select("-password")
+
+}catch(error){
+  console.error(error.message);
+  res.status(500).send("Server Error");
+
+
+}})
 module.exports = Router;
