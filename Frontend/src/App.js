@@ -1,6 +1,6 @@
 
 import './App.css';
-import Check from './components/Check.js'
+import Check from './components/Check.js';
 function App() {
   return (
     <>
