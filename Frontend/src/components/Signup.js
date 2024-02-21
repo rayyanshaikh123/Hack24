@@ -1,4 +1,9 @@
-<div style={{width: 556, height: 742, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 40, display: 'inline-flex'}}>
+import React from 'react'
+
+export default function Signup() {
+  return (
+    <div>
+      <div style={{width: 556, height: 742, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 40, display: 'inline-flex'}}>
 <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
   <div style={{textAlign: 'center', color: '#333333', fontSize: 32, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'}}>Create an account</div>
   <div style={{width: 460, textAlign: 'center', color: '#666666', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}>Lorem ipsum dolor sit amet, consectetur <br/>adipiscing elit. Morbi lobortis maximus</div>
@@ -70,3 +75,8 @@
   </div>
 </div>
 </div>
+    </div>
+  )
+}
+
+
