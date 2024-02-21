@@ -3,7 +3,7 @@ const connectTOMongo = require('./db');
 const app = express();
 connectTOMongo();
 //routes
-
+// app.use('/user' , './routers/auth')
 
 app.get('/', (req,res)=>{
     res.send("Hey");
