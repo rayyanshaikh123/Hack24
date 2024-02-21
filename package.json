@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "jsonwebtoken": "^9.0.2"
+=======
+    "@headlessui/react": "^1.7.18"
+>>>>>>> 47fc5ffeb541df05a911165de80491ba87afa9c2
   }
 }
