@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.custom-shape-divider-bottom-1708533644 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1708533644 svg {
+  position: relative;
+  display: block;
+  width: calc(140% + 1.3px);
+  height: 237px;
+}
+
+.custom-shape-divider-bottom-1708533644 .shape-fill {
+  fill: #FFFFFF;
+}
