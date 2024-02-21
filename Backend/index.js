@@ -1,6 +1,7 @@
 const express = require('express');
 const connectTOMongo = require('./db');
 const app = express();
+
 connectTOMongo();
 app.use(express.json())
 //routes
