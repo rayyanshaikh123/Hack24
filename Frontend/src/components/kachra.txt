@@ -1,0 +1,7 @@
+ <div style={{color: 'rgba(102, 102, 102, 0.80)', fontSize: 13, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}>We strongly recommend adding a phone number. This will help verify your account <br/>and keep it safe.</div>
+
+ hide button ka:
+  <div style={{width: 17.10, height: 16, left: 0, top: 0, position: 'absolute', background: 'rgba(234, 102, 102, 0.80)'}}></div>
+            <div style={{width: 11.30, height: 9.23, left: 6.89, top: 4.74, position: 'absolute', background: 'rgba(102, 102, 102, 0.80)'}}></div>
+
+                   <div style={{left: 32, top: 0, position: 'absolute', textAlign: 'right', color: 'rgba(102, 102, 102, 0.80)', fontSize: 18, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}>Hide</div>
