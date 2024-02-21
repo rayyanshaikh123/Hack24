@@ -1,10 +1,10 @@
 
 import './App.css';
-import Check from './components/Check.js'
+import LandPage from './components/LandPage';
 function App() {
   return (
     <>
-    <Check/>
+    <LandPage/>
     </>
   );
 }
