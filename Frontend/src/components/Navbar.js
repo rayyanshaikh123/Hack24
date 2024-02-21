@@ -5,7 +5,7 @@ export default function Navbar() {
     <div>
        <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
-    <a className="navbar-brand" href="/">Navbar</a>
+    <a className="navbar-brand" href="/"></a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -22,8 +22,8 @@ export default function Navbar() {
             Dropdown
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/">Action</a></li>
-            <li><a className="dropdown-item" href="/">Another action</a></li>
+            <li><a className="dropdown-item" href="/">cart</a></li>
+            <li><a className="dropdown-item" href="/">manue</a></li>
             <li><hr className="dropdown-divider"/></li>
             <li><a className="dropdown-item" href="/">Something else here</a></li>
           </ul>
@@ -42,3 +42,12 @@ export default function Navbar() {
     </div>
   )
 }
+
+<div class="card" style="width: 18rem;">
+<img src="..." class="card-img-top" alt="..."/>
+<div class="card-body">
+  <h5 class="card-title">Card title</h5>
+  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <a href="c:\Users\gadre\Hack24\Frontend\public\index.jpg" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
