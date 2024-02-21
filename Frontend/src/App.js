@@ -1,3 +1,4 @@
+import signup from './components/Signup';
 
 import './App.css';
 import LandPage from './components/LandPage';
@@ -39,7 +40,7 @@ function App() {
 </div>
     </div>
   </div>
-</div> */}
+  </div>*/ }
     </>
 
   );
