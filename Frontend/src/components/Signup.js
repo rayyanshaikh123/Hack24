@@ -71,12 +71,16 @@ export default function Signup() {
     </div>
   </div>
   <div style={{paddingTop: 8, paddingBottom: 8, paddingRight: 8, justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'inline-flex'}}>
-    <div><span style="color: '#333333', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'">By creating an account, you agree to the </span><span style="color: '#111111', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', textDecoration: 'underline', wordWrap: 'break-word'">Terms of use</span><span style="color: '#666666', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'"> </span><span style="color: '#333333', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'">and</span><span style="color: '#666666', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'"> </span><span style="color: '#111111', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', textDecoration: 'underline', wordWrap: 'break-word'">Privacy Policy.</span><span style="color: '#666666', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', textDecoration: 'underline', wordWrap: 'break-word'"> </span></div>
+    <div><span style={{color: '#333333', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}>By creating an account, you agree to the </span>
+    <span style={{color: '#111111', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', textDecoration: 'underline', wordWrap: 'break-word'}}>Terms of use</span>
+    <span style={{color: '#666666', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}> </span>
+    <span style={{color: '#333333', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}>and</span>
+    <span style={{color: '#666666', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}> </span>
+    <span style={{color: '#111111', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', textDecoration: 'underline', wordWrap: 'break-word'}}>Privacy Policy.</span>
+    <span style={{color: '#666666', fontSize: 15, fontFamily: 'Poppins', fontWeight: '400', textDecoration: 'underline', wordWrap: 'break-word'}}> </span></div>
   </div>
 </div>
 </div>
     </div>
   )
 }
-
-
