@@ -5,7 +5,7 @@ function App() {
   return (
     <>
     <LandPage/>
-<div class="container text-center">
+{/* <div class="container text-center">
   <div class="row align-items-start">
     <div class="col">
     <div class="card" style={{width: "18rem"}}>
@@ -39,7 +39,7 @@ function App() {
 </div>
     </div>
   </div>
-</div>
+</div> */}
     </>
 
   );
