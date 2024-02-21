@@ -3,51 +3,23 @@ import React from 'react'
 export default function Navbar() {
   return (
     <div>
-       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-  <div className="container-fluid">
-    <a className="navbar-brand" href="/"></a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/">Link</a>
-        </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/">cart</a></li>
-            <li><a className="dropdown-item" href="/">manue</a></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item" href="/">Something else here</a></li>
-          </ul>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+     <nav class="px-4 py-4 text-xl bg-sky-950 w-100 ">
+    <ul class="flex justify-between align-middle ">
+        <li class="mx-2 cursor-pointer text-slate-300 hover:text-white transition-all">Home</li>
+        <li class="mx-2 cursor-pointer text-slate-300 hover:text-white transition-all">About</li>
+        <li class="mx-2 cursor-pointer text-slate-300 hover:text-white transition-all">Contact</li>
+        <li class="mx-2 cursor-pointer text-slate-300 hover:text-white transition-all"><button>Become a Seller</button></li>
+    </ul>
+  </nav>
     </div>
   )
 }
 
-<div class="card" style="width: 18rem;">
+{/* <div class="card" style="width: 18rem;">
 <img src="..." class="card-img-top" alt="..."/>
 <div class="card-body">
   <h5 class="card-title">Card title</h5>
   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   <a href="c:\Users\gadre\Hack24\Frontend\public\index.jpg" class="btn btn-primary">Go somewhere</a>
 </div>
-</div>
+</div> */}

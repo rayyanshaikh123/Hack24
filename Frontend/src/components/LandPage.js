@@ -5,6 +5,7 @@ export default function LandPage() {
   return (
     <div>
      <Navbar/>
+     
     </div>
   )
 }
