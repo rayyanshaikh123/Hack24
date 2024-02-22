@@ -26,6 +26,8 @@ Router.post("/", [body("email").isEmail(), body("phone_no").isLength({ min: 10 }
       email: req.body.email,
       password: secPass,
       phone_no: req.body.phone_no,
+      shippingAddress:req.body.shippingAddress,
+      images: req.body.images
     });
     const data = {
       user: {
