@@ -34,7 +34,7 @@ router.post('/productsadd', fetchseller, [
      }
      //const{title,description,category,price,stockQuantity,images}=req.body;
      const product = new Product({
-        seler_id: req.seller.id, // Assuming you set req.seller in fetchseller middleware
+        seller: req.seller.id, // Assuming you set req.seller in fetchseller middleware
         title: req.body.title,
         description: req.body.description,
         category: req.body.category,

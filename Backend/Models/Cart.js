@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const cartSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -30,6 +31,17 @@ const cartSchema = new Schema({
         default: 0 // Default total price is 0
     }
 }, { timestamps: true });
+
+// Calculate cartAmmount before saving
+cartSchema.pre('save', function (next) {
+    let totalAmmount = 0;
+    this.items.forEach(item => {
+        totalAmmount += item.totalPrice;
+    });
+    this.cartAmmount = totalAmmount;
+    next();
+});
+
 
 const Cart = mongoose.model('Cart', cartSchema);
 
