@@ -78,7 +78,7 @@ function Navbar() {
             </Link>
          
             <Link
-                  to="/cart"
+                  to="/user/cart"
                   className="text-gray-300 text-xl hover:bg-gray-700 block hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   <i class="ri-shopping-cart-fill "></i>
@@ -128,12 +128,12 @@ function Navbar() {
             >
               Home
             </Link></center>
-            <center> <Link
-              to="/"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Projects
-            </Link></center>
+            <Link
+                  to="/user/cart"
+                  className="text-gray-300 text-xl hover:bg-gray-700 block hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                >
+                 <center><i class="ri-shopping-cart-fill "></i></center> 
+                </Link>
             
             <Link to="/user/login" className="text-gray-300 hover: hover:text-white rounded-md  block py-2 text-sm font-medium w-100">
               <button type="button" className="btn btn-primary">Shop Now</button>
@@ -141,12 +141,7 @@ function Navbar() {
             <Link  to="/seller/signup" className="text-gray-300 hover: hover:text-white rounded-md  py-2 text-sm font-medium w-100">
               <button type="button" className="btn btn-success">Become a Seller</button>
             </Link>
-             <Link
-                  to="/cart"
-                  className="text-gray-300 text-xl hover:bg-gray-700 block hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                >
-                 <center><i class="ri-shopping-cart-fill "></i></center> 
-                </Link>
+           
                 <Link
                   to="/"
                   className="text-gray-300  hover:text-white rounded-md px-3 py-2 text-sm font-medium"

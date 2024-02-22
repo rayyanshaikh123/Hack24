@@ -1,7 +1,9 @@
 import React from 'react'
 import Navbar from './Navbar'
 import logo from '../undraw_code_thinking_re_gka2.svg';
-import LandCard from './LandCard';
+// import LandCard from './LandCard';
+import Footer from './Footer';
+import {Link} from 'react-router-dom';
 export default function LandPage() {
   return (
     <>
@@ -12,10 +14,12 @@ export default function LandPage() {
         <h1 className="text-5xl w-30 "><span className="font-semibold italic"> SVTechShant: </span>Your Gateway to Cutting-Edge Computing & Accessories </h1>
         <p className="w-[50vw] py-4 text-lg subpixel-antialiased" >
         Welcome to SvTechShant, where innovation meets convenience! Explore our vast selection of top-tier computers, laptops, and accessories tailored to elevate your digital experience. From sleek laptops to powerhouse desktops, we offer the latest in technology to suit every need. Browse through a treasure trove of accessories - from lightning-fast SSDs to ergonomic keyboards - designed to enhance productivity and unleash your creativity. At Tech Haven, we're more than just a store; we're your partner in tech exploration. Shop with confidence and embark on a journey towards unparalleled performance and seamless connectivity. Your digital oasis awaits at SvTechShant - Where Technology Thrives!
-       
+        
         </p> 
+        
         </div>
         <div className="mt-[29vh] w-70" >
+
       <img src={logo} alt="Product"  className="w-100 h-100 pr-20" />
       </div>
       </div>
@@ -37,11 +41,10 @@ export default function LandPage() {
     </div>
 
 <div className="container h-[70vh]  col-md-3 ">
-<LandCard/>
-<LandCard/>
-<LandCard/>
+<Link to="/products"><button type="button" class="btn btn-primary">Explore Now</button></Link>
 
 </div>
+<Footer/>
 </>
   )
 }

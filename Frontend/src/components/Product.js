@@ -3,6 +3,7 @@ import ProductItem from './ProductItem';
 import Spinner from './Spinner';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Product = (props) => {
   const [products, setProducts] = useState([]);
@@ -79,6 +80,7 @@ const Product = (props) => {
           )}
         </div>
       </InfiniteScroll>
+      <Footer/>
     </>
   );
 };

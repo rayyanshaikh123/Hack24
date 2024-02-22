@@ -32,4 +32,54 @@ code {
   fill: #FFFFFF;
 }
 
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
 
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer .footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer .footer-content .section {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.footer .footer-content .section h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.footer .footer-content .section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-content .section ul li {
+  margin-bottom: 10px;
+}
+
+.footer .footer-legals {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer .footer-content {
+    flex-direction: column;
+  }
+
+  .footer .footer-content .section {
+    margin: 10px 0;
+  }
+}
