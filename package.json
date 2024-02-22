@@ -1,7 +1,10 @@
 {
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "jsonwebtoken": "^9.0.2",
-    "@headlessui/react": "^1.7.18"
+    "ldrs": "^1.0.1",
+    "outline": "^0.1.1",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-top-loading-bar": "^2.3.1"
   }
 }
-
