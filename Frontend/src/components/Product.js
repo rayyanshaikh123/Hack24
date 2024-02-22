@@ -69,7 +69,7 @@ const Product = (props) => {
         {loading ? (
           <Spinner />
         ) : (
-          <div className="row">
+          <div className="row flex-wrap">
             {products.map((element, index) => (
               <div className="col-md-4" key={index}>
                 <ProductItem

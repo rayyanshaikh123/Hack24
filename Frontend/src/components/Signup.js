@@ -16,7 +16,7 @@ export default function Signup() {
               <center><h1 className="font-semibold text-2xl" >Sign Up</h1></center>
               <br />
             </div>
-            <form action='localhost:5000/user' method='post'>
+            <form>
               <div class="detailsh">
                 <div class="ipbox">
                   <span class="details">First name</span>
