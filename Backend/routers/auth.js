@@ -1,10 +1,12 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const JWT_token = "securekey35*3%^";
+
 var jwt = require("jsonwebtoken");
 const Router = express.Router();
 const User = require("../Models/User");
 const { body, validationResult } = require("express-validator");
+const fetchuser = require("../middleware/fetchuser");
 Router.post("/", [body("email").isEmail(), body("phone_no").isLength({ min: 10 }), body("password").isLength({ min: 7 })], async (req, res) => {
   try {
     // route 1validating the values first then accordingly inserting the data in db
@@ -74,12 +76,12 @@ Router.post("/login", [body("email").isEmail(), body("password").isLength({ min:
   }
 });
 // route 3 get user data logged in 
-Router.post("/", [body("email").isEmail(), body("password").isLength({ min: 7 })],
-  async (req, res) => {
+Router.post('/getuser',  fetchuser ,async (req, res) => {
 
 try{
-  userid='tdjfh';
-  const user = await user.findById(userid).select("-password")
+   userid= req.user.id;
+  const user = await User.findById(userid).select("-password")
+  res.send(user);
 
 }catch(error){
   console.error(error.message);
