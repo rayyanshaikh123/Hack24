@@ -1,20 +1,12 @@
-
 import React, { useEffect, useState } from 'react';
-
 import ProductItem from './ProductItem';
 import Spinner from './Spinner';
-
-
 import InfiniteScroll from 'react-infinite-scroll-component';
-
-// 
-
-
-
+import Navbar from './Navbar';
 
 const Product = (props) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false); // Set to false initially
+  const [loading, setLoading] = useState(false);
   const [totalResults, setTotalResults] = useState(0);
 
   const updateNews = async () => {
@@ -26,10 +18,8 @@ const Product = (props) => {
       setLoading(true);
       let parsedData = await data.json();
 
-     
-        setProducts(parsedData.products);
-        setTotalResults(parsedData.totalResults);
-      
+      setProducts(parsedData.products);
+      setTotalResults(parsedData.totalResults);
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -39,7 +29,9 @@ const Product = (props) => {
   };
 
   useEffect(() => {
+    document.title = props.heading;
     updateNews();
+    // eslint-disable-next-line
   }, []);
 
   const fetchMoreData = async () => {
@@ -47,7 +39,7 @@ const Product = (props) => {
     try {
       let data = await fetch(url);
       let parsedData = await data.json();
-      setProducts((prevProducts) => [...prevProducts, ...parsedData.products]); // Update state correctly
+      setProducts((prevProducts) => [...prevProducts, ...parsedData.products]);
       setTotalResults(parsedData.totalResults);
     } catch (error) {
       console.log(error);
@@ -55,38 +47,39 @@ const Product = (props) => {
   };
 
   return (
-    <InfiniteScroll
-      dataLength={products.length}
-      next={fetchMoreData}
-      hasMore={products.length !== totalResults}
-      loader={<Spinner />}
-      style={{ overflow: "visible" }}
-    >
-      <div className="container" style={{ overflow: "none" }}>
-        <h1 className="text-center" style={{ marginTop: "90px" }}>
-          {props.heading}
-        </h1>
-        {loading ? (
-          <Spinner />
-        ) : (
-          <div className="row flex-wrap">
-            {products.map((element, index) => (
-              <div className="col-md-4" key={index}>
-                <ProductItem
-                  image={element.images}
-                  title={element.title ? element.title.slice(0, 45) : ""}
-                  description={
-                    element.description ? element.description.slice(0, 88) : ""
-                  }
-                  price={element.price}
-                  brand={element.brand}
-                />
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </InfiniteScroll>
+    <>
+      <Navbar />
+      <InfiniteScroll
+        dataLength={products.length}
+        next={fetchMoreData}
+        hasMore={products.length !== totalResults}
+        loader={<Spinner />}
+        style={{ overflow: 'visible' }}
+      >
+        <div style={{ overflow: 'hidden' }}>
+          <p className="text-4xl px-5 font-semibold" style={{ marginTop: '40px' }}>
+            {props.heading}
+          </p>
+          {loading ? (
+            <Spinner />
+          ) : (
+            <div className="row" style={{ marginRight: '-15px', marginLeft: '-15px' }}>
+              {products.map((element, index) => (
+                <div className="col-md-4" key={index} style={{ paddingRight: '15px', paddingLeft: '15px' }}>
+                  <ProductItem
+                    image={element.images}
+                    title={element.title ? element.title.slice(0, 45) : ''}
+                    description={element.description ? element.description.slice(0, 88) : ''}
+                    price={element.price}
+                    brand={element.brand}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </InfiniteScroll>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import myImage from '../image.png';
+import {Link} from 'react-router-dom';
 function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -8,7 +9,7 @@ function Navbar() {
   };
 
   return (
-    
+    <>
     <nav className="bg-gray-800 sticky top-0 z-50 py-2">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
@@ -35,21 +36,21 @@ function Navbar() {
             <div className="hidden sm:ml-6 mt-2.5 sm:block">
               <div className="flex space-x-4 items-center">
                 {/* Navigation links */}
-                <a
-                  href="#"
+                <Link
+                  to="/user/profile"
                   className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
                   aria-current="page"
                 >
                   Profile
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  to="/"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   Home
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  to="/"
                   className="text-gray-300  hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                 <div class="dropdown">
@@ -57,30 +58,31 @@ function Navbar() {
     Categories
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><Link class="dropdown-item" to="/">Action</Link></li>
+    <li><Link class="dropdown-item" to="/">Another action</Link></li>
+    <li><Link class="dropdown-item" to="/">Something else here</Link></li>
   </ul>
 </div>
-                </a>
-                <a
-              href="#"
+                </Link>
+                <Link
+              to="/user/login"
               className="text-gray-300  hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               <button type="button" className="btn btn-primary">Shop Now</button>
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/seller/signup"
               className="text-gray-300  hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               <button type="button" className="btn btn-success">Become A Seller</button>
-            </a>
-            <a
-                  href="#"
+            </Link>
+         
+            <Link
+                  to="/cart"
                   className="text-gray-300 text-xl hover:bg-gray-700 block hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   <i class="ri-shopping-cart-fill "></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -113,40 +115,40 @@ function Navbar() {
         <div className="sm:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {/* Dropdown menu for mobile */}
-            <center><a
-              href="#"
+            <center><Link
+              to="/"
               className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
               aria-current="page"
             >
-              Dashboard
-            </a></center>
-            <center><a
-              href="#"
+              Profile
+            </Link></center>
+            <center><Link
+              to="/"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               Home
-            </a></center>
-            <center> <a
-              href="#"
+            </Link></center>
+            <center> <Link
+              to="/"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               Projects
-            </a></center>
+            </Link></center>
             
-            <button type="button" className="text-gray-300 hover: hover:text-white rounded-md  block py-2 text-sm font-medium w-100">
+            <Link to="/user/login" className="text-gray-300 hover: hover:text-white rounded-md  block py-2 text-sm font-medium w-100">
               <button type="button" className="btn btn-primary">Shop Now</button>
-            </button>
-            <button type="button" className="text-gray-300 hover: hover:text-white rounded-md  py-2 text-sm font-medium w-100">
+            </Link>
+            <Link  to="/seller/signup" className="text-gray-300 hover: hover:text-white rounded-md  py-2 text-sm font-medium w-100">
               <button type="button" className="btn btn-success">Become a Seller</button>
-            </button>
-             <a
-                  href="#"
+            </Link>
+             <Link
+                  to="/cart"
                   className="text-gray-300 text-xl hover:bg-gray-700 block hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                  <center><i class="ri-shopping-cart-fill "></i></center> 
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  to="/"
                   className="text-gray-300  hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                <div class="dropdown">
@@ -154,16 +156,17 @@ function Navbar() {
     Categories
   </button></center>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><Link class="dropdown-item" to="/">Action</Link></li>
+    <li><Link class="dropdown-item" to="/">Another action</Link></li>
+    <li><Link class="dropdown-item" to="/">Something else here</Link></li>
   </ul>
 </div>
-                </a>
+                </Link>
           </div>
         </div>
       )}
     </nav>
+    </>
   );
 }
 

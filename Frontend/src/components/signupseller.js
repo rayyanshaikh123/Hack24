@@ -13,10 +13,10 @@ export default function Signup() {
         <div id="form">
           <div class="container">
             <div class="title">
-              <center><h1 className="font-semibold text-2xl" >Sign Up As seller  </h1></center>
+              <center><h1 className="font-semibold text-2xl" >Sign Up As Seller  </h1></center>
               <br />
             </div>
-            <form action='localhost:5000/user' method='post'>
+            <form >
               <div class="detailsh">
                 <div class="ipbox">
                   <span class="details">First name</span>
