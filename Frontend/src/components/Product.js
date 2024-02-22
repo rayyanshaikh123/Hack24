@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+
 import ProductItem from './ProductItem';
 import Spinner from './Spinner';
 
@@ -10,7 +10,6 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 const News =(props)=> {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
-  const [page, setPage] = useState(1)
   const [totalResults, setTotalResults] = useState(0)
 
 
@@ -46,7 +45,7 @@ const News =(props)=> {
 
  
           useEffect(() => {
-        document.title = props.heading;
+        // document.title = props.heading;
 
             updateNews();
             // eslint-disable-next-line

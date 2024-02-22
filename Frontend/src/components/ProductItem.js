@@ -1,12 +1,12 @@
 import React from 'react'
-
+import 'ldrs/quantum';
 const ProductItem =(props)=> {
 
     let {title,description,price, brand,images} = props;
     return (
       <div className="my-5 mx-5">
     
-  <div class="card" style="width: 18rem;">
+  <div class="card" style={{width: "18rem"}}>
 
   <img src={images?images:"https://cdn.dummyjson.com/product-images/2/3.jpg"} class="card-img-top" alt="..."/>
   <div class="card-body">
