@@ -34,7 +34,7 @@ router.post('/productsadd', fetchseller, [
      }
      //const{title,description,category,price,stockQuantity,images}=req.body;
      const product = new Product({
-        user: req.seller.id, // Assuming you set req.seller in fetchseller middleware
+        seler_id: req.seller.id, // Assuming you set req.seller in fetchseller middleware
         title: req.body.title,
         description: req.body.description,
         category: req.body.category,
@@ -51,5 +51,28 @@ router.post('/productsadd', fetchseller, [
 }
     
 })
+//ROUTE 4: Delete an existing Note using: DELETE "/api/notes/deletenote". Login required router.delete('/deletenote/:id', fetchuser, async (req, res) =>
+router.delete('/deletepro/:id', fetchseller, async (req, res) => {
+    try {
+        // Finding product to be deleted by ID
+        let product = await Product.findById(req.params.id);
+        // Check if the product exists
+        if (!product) {
+            return res.status(404).send("Product not found");
+        }
+        // Allow delete only if the seller owns the product
+        if (product.seller && product.seller.toString() !== req.seller.id) {
+            return res.status(403).send("Not allowed to delete this product");
+        }
+        // Delete the product
+        await Product.findByIdAndDelete(req.params.id);
+        res.json({"success": "Product deleted"});
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Server Error");
+    }
+});
+
+
 
 module.exports=router
