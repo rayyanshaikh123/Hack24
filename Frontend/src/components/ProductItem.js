@@ -8,7 +8,7 @@ const ProductItem =(props)=> {
     
   <div class="card" style={{width: "18rem"}}>
 
-  <img src={images?images:"https://cdn.dummyjson.com/product-images/2/3.jpg"} class="card-img-top" alt="..."/>
+  <img src={images?images:"https://cdn.dummyjson.com/product-images/1/1.jpg"} class="card-img-top" alt="Moye Moye"/>
   <div class="card-body">
   <span className="position-absolute top-0 left-10 start-100 translate-middle badge rounded-pill bg-danger">
    {brand}
