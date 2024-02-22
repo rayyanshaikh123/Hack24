@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-// import Signup from './components/Signup'
+import Signup from './components/Signup'
 import Login from './components/Login'
 import LoadingBar from 'react-top-loading-bar';
 import Product from './components/Product';
@@ -15,10 +15,10 @@ color='#f11946'
 progress={progress}
 // onLoaderFinished={() => setProgress(0)}
 />
-<Navbar/>
-<Product setProgress={setProgress }/>
+{/* <Navbar/> */}
+{/* <Product setProgress={setProgress }/> */}
 
-          {/* <Signup/> */}
+          <Signup/>
           {/* <Login/> */}
     </>
   )

@@ -7,7 +7,9 @@ export default function Signup() {
     <div id="home">
      
       <Navbar/>
+      
       <div id="content">
+        
         <div id="form">
           <div class="container">
             <div class="title">
@@ -38,6 +40,7 @@ export default function Signup() {
                 </div>
                
               </div>
+              
             
               <button type="button" class="sign" onclick="register()">Sign Up</button>
               <label for="frgpsw"><a class="forgot mx-3" href="./forgotpsw ">    Already Have An Account?</a></label>
@@ -47,5 +50,6 @@ export default function Signup() {
       </div>
     </div>
   </div>
+  
   )
 }
