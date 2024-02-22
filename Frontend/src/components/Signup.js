@@ -16,11 +16,11 @@ export default function Signup() {
               <center><h1 className="font-semibold text-2xl" >Sign Up</h1></center>
               <br />
             </div>
-            <form>
+            <form action='localhost:5000/user' method='post'>
               <div class="detailsh">
                 <div class="ipbox">
                   <span class="details">First name</span>
-                  <input type="text" id="fname" required />
+                  <input type="text" id="fname" name='username' required />
                 </div>
                 <div class="ipbox">
                   <span class="details">Last name</span>
@@ -28,21 +28,21 @@ export default function Signup() {
                 </div>
                 <div class="ipbox">
                   <span class="details">Email</span>
-                  <input type="email" id="email" required />
+                  <input type="email" id="email" name='email' required />
                 </div>
                 <div class="ipbox">
                   <span class="details">Phone No</span>
-                  <input type="tel" id="tel" required />
+                  <input type="tel" id="tel" name='phone_no' required />
                 </div>
                 <div class="ipbox">
                   <span class="details">Password</span>
-                  <input type="password" id="password" required />
+                  <input type="password" id="password" name='password' required />
                 </div>
                
               </div>
               
             
-              <button type="button" class="sign" onclick="register()">Sign Up</button>
+              <button type="submit" class="sign" >Sign Up</button>
               <label for="frgpsw"><a class="forgot mx-3" href="./forgotpsw ">    Already Have An Account?</a></label>
             </form>
           </div>
