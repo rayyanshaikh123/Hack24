@@ -73,9 +73,9 @@ Router.post("/login", [body("email").isEmail(), body("password").isLength({ min:
     res.status(500).send("Server Error");
   }
 });
-// route 3 get user data loggedin 
+// route 3 get user data logged in 
 Router.post("/", [body("email").isEmail(), body("password").isLength({ min: 7 })],
- async (req, res) => {
+  async (req, res) => {
 
 try{
   userid='tdjfh';
