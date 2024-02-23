@@ -31,8 +31,8 @@ const orderSchema = new Schema({
     },
     paymentMode: {
         type: String,
-        enum: ['Credit Card', 'Debit Card', 'Net Banking', 'UPI', 'Wallet'], // Payment mode options
-        required: true
+        enum: ['Online', 'Credit Card', 'Debit Card', 'Net Banking', 'UPI', 'Wallet'], // Payment mode options
+        default: 'Online' // Default payment mode is "Online"
     },
     orderDate: {
         type: Date,

@@ -1,7 +1,5 @@
 
-const express = require('express');
-const connectTOMongo = require('./db');
-const cors = require('cors');
+
 
 const express = require("express");
 const connectTOMongo = require("./db");
@@ -31,11 +29,6 @@ app.use(
 
 
 // Define route to serve the HTML file
-router.get("/", (req, res) => {
-  // Adjust the path to index.html
-  const indexPath = path.resolve(__dirname, "..", "./Backend/views", "index.html");
-  res.sendFile(indexPath);
-});
 
 // Mount the router to handle requests to the root path ("/")
 app.use("/", router);
@@ -45,6 +38,7 @@ app.use("/user", require("./routers/auth"));
 app.use("/api/product", require("./routers/product"));
 app.use("/api/cart", require("./routers/cart"));
 app.use("/api/cartr", require("./routers/cartRoutes"));
+app.use("/api/order", require("./routers/order"));
 
 
 app.listen(5000, () => {
