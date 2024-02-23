@@ -6,7 +6,7 @@ import Product from './components/Product';
 import Cart from './components/Cart';
 import 'ldrs/quantum';
 // import Navbar from './components/Navbar';
-import SignupSeller from './components/SignupSeller.js';
+import SignupSeller from './components/signupseller.js';
 import LandPage from './components/LandPage';
 import {
   HashRouter as Router,
