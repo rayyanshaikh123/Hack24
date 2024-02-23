@@ -29,16 +29,21 @@ const cartSchema = new Schema({
     cartAmmount: {
         type: Number,
         default: 0 // Default total price is 0
+    },
+    shippingCharges:{
+        type: Number,
+        default:130
     }
+
 }, { timestamps: true });
 
 // Calculate cartAmmount before saving
 cartSchema.pre('save', function (next) {
-    let totalAmmount = 0;
+    let totalAmount = 0;
     this.items.forEach(item => {
-        totalAmmount += item.totalPrice;
+        totalAmount += item.totalPrice;
     });
-    this.cartAmmount = totalAmmount;
+    this.cartAmmount = totalAmount + this.shippingCharges; // Add shipping charges to the total amount
     next();
 });
 
