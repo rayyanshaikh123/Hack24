@@ -147,6 +147,7 @@ Router.post('/getseller',  fetchseller ,async (req, res) => {
   
   
   }})
+<<<<<<< HEAD
 // route 6 add admin 
 Router.post("/adminadd", [body("email").isEmail(), body("phone_no").isLength({ min: 10 }),body("username").isLength({min:3}), body("password").isLength({ min: 7 })], async (req, res) => {
     let success = false;
@@ -186,5 +187,7 @@ Router.post("/adminadd", [body("email").isEmail(), body("phone_no").isLength({ m
     }
   });
   
+=======
+>>>>>>> 2c643aeb5968436ab81fff38483025fd467ccebd
 
 module.exports = Router;

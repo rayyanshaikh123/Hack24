@@ -47,34 +47,73 @@ const ProductTable = (props) => {
   };
 
 
-  const handleCheckout = () => {
-    const options = {
-      key: "rzp_test_X8pn5QCCyLJE7N",
-      amount: calculateTotal() * 100, // amount in paisa
-      currency: "INR",
-      name: "Your Company Name",
-      description: "Purchase Description",
-      image: "https://your-company-logo.png",
-      handler: function (response) {
-        alert("Payment successful!");
-      },
-      prefill: {
-        name: "Customer Name",
-        email: "customer@example.com",
-        contact: "Customer Contact Number",
-      },
-      notes: {
-        address: "Customer Address",
-      },
-      theme: {
-        color: "#528FF0",
-      },
-    };
-
-    const rzp = new window.Razorpay(options);
-    rzp.open();
+  const handleCheckout = async () => {
+    try {
+      const authToken = localStorage.getItem('authToken'); // Retrieve authToken from localStorage
+  
+      const options = {
+        key: "rzp_test_X8pn5QCCyLJE7N",
+        amount: calculateTotal() * 100, // amount in paisa
+        currency: "INR",
+        name: "Your Company Name",
+        description: "Purchase Description",
+        image: "https://your-company-logo.png",
+        prefill: {
+          name: "Customer Name",
+          email: "customer@example.com",
+          contact: "Customer Contact Number",
+        },
+        notes: {
+          address: "Customer Address",
+        },
+        theme: {
+          color: "#528FF0",
+        },
+        handler: async (response) => {
+          // If payment is successful
+          if (response.razorpay_payment_id) {
+            // Move cart items to orders
+            const cartItems = products.map(product => ({
+              product: product.id,
+              quantity: product.quantity,
+              totalPrice: product.price * product.quantity
+            }));
+  
+            const orderData = {
+              items: cartItems,
+              totalPrice: calculateTotal(),
+              shippingAddress: "User's Shipping Address", // Replace with actual user's shipping address
+              paymentMode: "Razorpay",
+            };
+  
+            // Make a POST request to place the order with the authToken included in the request headers
+            const response = await axios.post('http://localhost:5000/api/order/place-order', orderData, {
+              headers: {
+                "auth-token": authToken // Include the authentication token in the request header
+              }
+            });
+  
+            // Show success message
+            alert('Payment successful! Your order has been placed.');
+  
+            // Clear the cart after successful payment
+            setProducts([]);
+          } else {
+            // Payment failed
+            alert('Payment failed. Please try again.');
+          }
+        }
+      };
+  
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    } catch (error) {
+      console.error('Error processing payment:', error);
+      // Handle payment error (e.g., display error message)
+      alert('Payment failed. Please try again.');
+    }
   };
-
+  
   return (
     <>
       <Navbar />
