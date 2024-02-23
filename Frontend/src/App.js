@@ -6,7 +6,7 @@ import Product from './components/Product';
 import Cart from './components/Cart';
 import 'ldrs/quantum';
 // import Navbar from './components/Navbar';
-import SignupSeller from './components/SignupSeller.js';
+import SignupSeller from './components/signupseller.js';
 import LandPage from './components/LandPage';
 import {
   HashRouter as Router,
@@ -14,7 +14,7 @@ import {
     Routes
 } from "react-router-dom";
 import ErrorBoundary from './components/ErrorBoundary.js';
-import AddProduct from './components/addProduct.js';
+// import AddProduct from './components/addProduct.js';
 
 export default function App() {
   const [progress,setProgress] = useState(0)
@@ -31,9 +31,9 @@ progress={progress}
 
 <Routes>
           
-          <Route exact path="/" element={<LandPage key="Land"/>}/>
-          <Route exact path="/user/signup" element={<Signup key="Signup" />}/>
-          <Route exact path="/user/login" element={<Login  key="Login"/>}/>
+          <Route exact path="/user/signup" element={<LandPage key="Land"/>}/>
+          <Route exact path="/user/login" element={<Signup key="Signup" />}/>
+          <Route exact path="/" element={<Login  key="Login"/>}/>
           <Route exact path="/seller/" element={<SignupSeller  key="SellerSign" />}/>
           <Route exact path="/products" element={<Product setProgress={setProgress } key="Product" heading='Product'/>}/>
           <Route exact path="/user/Cart" element={<Cart heading='Your Shopping Cart'/>}/>
