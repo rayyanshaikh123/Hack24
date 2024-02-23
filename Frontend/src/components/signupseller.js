@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Signup.css';
 import Navbar from './Navbar';
-export default function Signup() {
+export default function SignupSeller() {
   return (
     <div id="main">
     <div id="home">

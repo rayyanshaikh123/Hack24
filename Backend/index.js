@@ -1,10 +1,26 @@
+
+const express = require('express');
+const connectTOMongo = require('./db');
+const cors = require('cors');
+
 const express = require("express");
 const connectTOMongo = require("./db");
+
 const app = express();
 const router = express.Router();
 const path = require("path");
 const cors = require("cors");
 connectTOMongo();
+
+app.use(express.json())
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    method:["GET","POST"]
+  };
+  
+  app.use(cors(corsOptions));
+//routes
+
 app.use(express.json());
 app.use(
   cors({
@@ -12,6 +28,7 @@ app.use(
     method: ["GET", "POST"],
   })
 );
+
 
 // Define route to serve the HTML file
 router.get("/", (req, res) => {
