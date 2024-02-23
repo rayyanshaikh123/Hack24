@@ -5,37 +5,39 @@ const Schema = mongoose.Schema;
 const cartSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Reference to the user model
+        ref: 'User',
         required: true
     },
     items: [{
         product: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Product' // Reference to the product model
+            ref: 'Product'
         },
         quantity: {
             type: Number,
-            default: 1 // Default quantity is 1
+            default: 1
         },
         totalPrice: {
             type: Number,
             required: true
-        }
+        },
+        productName: String, // Add productName field
+        productImg: String    // Add productImg field
     }],
     totalUniqueProducts: {
         type: Number,
-        default: 0 // Default total unique products is 0
+        default: 0
     },
-    cartAmmount: {
+    cartAmount: {
         type: Number,
-        default: 0 // Default total price is 0
+        default: 0
     },
     shippingCharges:{
         type: Number,
         default:130
     }
-
 }, { timestamps: true });
+
 
 // Calculate cartAmmount before saving
 cartSchema.pre('save', function (next) {

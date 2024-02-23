@@ -28,7 +28,7 @@ app.use("/user", require("./routers/auth"));
 app.use("/api/product", require("./routers/product"));
 app.use("/api/cart", require("./routers/cart"));
 app.use("/api/cartr", require("./routers/cartRoutes"));
-app.use("/api/payment", require("../Frontend/src/components/razorpay"));
+
 
 app.listen(5000, () => {
   console.log("Listening to port 5000");
