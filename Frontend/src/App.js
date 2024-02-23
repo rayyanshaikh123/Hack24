@@ -7,7 +7,6 @@ import Cart from './components/Cart';
 import 'ldrs/quantum';
 // import Navbar from './components/Navbar';
 import SignupSeller from './components/SignupSeller.js';
-
 import LandPage from './components/LandPage';
 import {
   HashRouter as Router,
@@ -32,8 +31,7 @@ progress={progress}
 
 <Routes>
           
-          <Route exact path="/wef" element={<LandPage key="Land"/>}/>
-          <Route exact path="/" element={<AddProduct/>}/>
+          <Route exact path="/" element={<LandPage key="Land"/>}/>
           <Route exact path="/user/signup" element={<Signup key="Signup" />}/>
           <Route exact path="/user/login" element={<Login  key="Login"/>}/>
           <Route exact path="/seller/" element={<SignupSeller  key="SellerSign" />}/>
