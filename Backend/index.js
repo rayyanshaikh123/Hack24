@@ -1,9 +1,16 @@
 const express = require('express');
 const connectTOMongo = require('./db');
+const cors = require('cors');
 const app = express();
 
 connectTOMongo();
 app.use(express.json())
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    method:["GET","POST"]
+  };
+  
+  app.use(cors(corsOptions));
 //routes
 
 app.use('/user' , require('./routers/auth'))

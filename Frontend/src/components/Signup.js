@@ -19,12 +19,8 @@ export default function Signup() {
             <form>
               <div class="detailsh">
                 <div class="ipbox">
-                  <span class="details">First name</span>
+                  <span class="details">Username</span>
                   <input type="text" id="fname" name='username' required />
-                </div>
-                <div class="ipbox">
-                  <span class="details">Last name</span>
-                  <input type="text" id="lname" required />
                 </div>
                 <div class="ipbox">
                   <span class="details">Email</span>
@@ -38,7 +34,10 @@ export default function Signup() {
                   <span class="details">Password</span>
                   <input type="password" id="password" name='password' required />
                 </div>
-               
+                <div class="ipbox">
+                  <span class="details">Address</span>
+                  <input type="password" id="password" name='password' required />
+                </div>
               </div>
               
             
