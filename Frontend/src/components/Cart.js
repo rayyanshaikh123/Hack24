@@ -1,23 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Navbar from './Navbar';
 
 const ProductTable = (props) => {
-  const [products, setProducts] = useState([
-    { 
-      id: 1,
-      title: "Product 1",
-      price: 19.99,
-      quantity: 2,
-      image: "https://cdn.dummyjson.com/product-images/3/1.jpg"
-    },
-    { 
-      id: 2,
-      title: "Product 2",
-      price: 24.99,
-      quantity: 1,
-      image: "https://cdn.dummyjson.com/product-images/2/3.jpg"
-    }
-  ]);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchCart = async () => {
+      try {
+        // Retrieve the authentication token from local storage
+        const authToken = localStorage.getItem('authToken');
+        console.log(authToken);
+
+        // Make a GET request to fetch the cart data with the authentication token included in the request header
+        const response = await axios.get('http://localhost:5000/api/cartr/getcart', {
+          headers: {
+            "auth-token": authToken // Include the authentication token in the request header
+          }
+        });
+
+        const cartItems = response.data.items;
+
+        const updatedProducts = cartItems.map(item => ({
+          id: item.product._id,
+          title: item.product.title,
+          price: item.product.price,
+          quantity: item.quantity,
+          image: item.product.images[0]
+        }));
+
+        setProducts(updatedProducts);
+      } catch (error) {
+        console.error('Error fetching cart:', error);
+      }
+    };
+
+    fetchCart();
+  }, []);
 
   const calculateTotal = () => {
     let totalPrice = 0;
@@ -27,30 +46,31 @@ const ProductTable = (props) => {
     return totalPrice.toFixed(2);
   };
 
+
   const handleCheckout = () => {
     const options = {
-      key: 'rzp_test_X8pn5QCCyLJE7N',
+      key: "rzp_test_X8pn5QCCyLJE7N",
       amount: calculateTotal() * 100, // amount in paisa
-      currency: 'INR',
-      name: 'Your Company Name',
-      description: 'Purchase Description',
-      image: 'https://your-company-logo.png',
-      handler: function(response) {
-        alert('Payment successful!');
+      currency: "INR",
+      name: "Your Company Name",
+      description: "Purchase Description",
+      image: "https://your-company-logo.png",
+      handler: function (response) {
+        alert("Payment successful!");
       },
       prefill: {
-        name: 'Customer Name',
-        email: 'customer@example.com',
-        contact: 'Customer Contact Number',
+        name: "Customer Name",
+        email: "customer@example.com",
+        contact: "Customer Contact Number",
       },
       notes: {
-        address: 'Customer Address',
+        address: "Customer Address",
       },
       theme: {
-        color: '#528FF0',
+        color: "#528FF0",
       },
     };
-    
+
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
@@ -102,6 +122,6 @@ const ProductTable = (props) => {
       </div>
     </>
   );
-}
+};
 
 export default ProductTable;
