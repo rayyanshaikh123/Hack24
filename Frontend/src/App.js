@@ -16,7 +16,7 @@ import {
 import ErrorBoundary from './components/ErrorBoundary.js';
 import Profile from './components/Profile.js';
 import AdminLogin from './components/adminlogin.js';
-
+import NewComponent from './components/Dashboard.js'
 // import AddProduct from './components/addProduct.js';
 
 export default function App() {
@@ -35,11 +35,12 @@ progress={progress}
 <Routes>
           
           <Route exact path="/user/signup" element={<LandPage key="Land"/>}/>
-          <Route exact path="/" element={<AdminLogin/>}/>
+          <Route exact path="/admin/dashboard" element={<AdminLogin/>}/>
           <Route exact path="/user/signup" element={<Signup key="Signup" />}/>
 
           <Route exact path="/user/login" element={<Login  key="Login"/>}/>
           <Route exact path="/user/profile" element={<Profile/>}/>
+          <Route exact path="/" element={<NewComponent/>}/>
 
           <Route exact path="/seller/" element={<SignupSeller  key="SellerSign" />}/>
           <Route exact path="/products" element={<Product setProgress={setProgress } key="Product" heading='Product'/>}/>

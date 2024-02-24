@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+/* Remove background */
+aside {
+  background: none;
+}
+
+/* Adjust main width to take up remaining space */
+main {
+  width: calc(100% - 14rem - 16rem);
+}
+
+/* Adjust right side width */
+.right {
+  width: 16rem;
+}

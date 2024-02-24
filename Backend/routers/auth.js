@@ -224,6 +224,40 @@ Router.post("/adminlogin", [body("email").isEmail(), body("password").isLength({
     res.status(500).send("Server Error");
 }
 });
+//route 8 
+Router.post("/sellerlogin", [body("email").isEmail(), body("password").isLength({ min: 7 })], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { email, password } = req.body;
+
+  try {
+    let seller = await Seller.findOne({ email });
+    if (!seller) {
+      return res.status(400).json({ error: "Invalid credentials" });
+    }
+
+    const passCompare = await bcrypt.compare(password, user.password);
+    if (!passCompare) {
+      return res.status(400).json({ error: "Invalid credentials" });
+    }
+
+    const data = {
+      seller: {
+        id: seller.id,
+      },
+    };
+
+    const authtoken = jwt.sign(data, JWT_token);
+    res.json({ authtoken });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
   
 
 

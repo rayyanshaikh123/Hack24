@@ -37,6 +37,7 @@ export default function Login() {
 
       // Redirect the user to another page or update the UI as needed
       console.log('Login successful. Auth token:', authToken);
+      window.location.href = '/cart.js';
     } catch (error) {
       console.error('Login failed:', error.response.data);
       // Handle login error (e.g., display error message)
