@@ -5,6 +5,7 @@ const JWT_token = "securekey35*3%^";
 var jwt = require("jsonwebtoken");
 const Router = express.Router();
 const User = require("../Models/User");
+const Admin = require("../Models/Admin");
 const Seller = require("../Models/Seller");
 const { body, validationResult } = require("express-validator");
 const fetchuser = require("../middleware/fetchuser");
@@ -81,19 +82,22 @@ Router.post("/login", [body("email").isEmail(), body("password").isLength({ min:
   }
 });
 // route 3 get user data logged in 
-Router.post('/getuser',  fetchuser ,async (req, res) => {
-
-try{
-   userid= req.user.id;
-  const user = await User.findById(userid).select("-password")
-  res.send(user);
-
-}catch(error){
-  console.error(error.message);
-  res.status(500).send("Server Error");
-
-
-}})
+Router.post('/getuser', fetchuser, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const user = await User.findById(userId).select('-password -createdAt -updatedAt -__v');
+    const userData = {
+      username: user.username,
+      email: user.email,
+      address: user.shippingAddress, // Update to include shipping address as address
+      mobile_no: user.phone_no, // Update to include phone number as mobile_no
+    };
+    res.json(userData);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 
 
@@ -147,7 +151,7 @@ Router.post('/getseller',  fetchseller ,async (req, res) => {
   
   
   }})
-<<<<<<< HEAD
+
 // route 6 add admin 
 Router.post("/adminadd", [body("email").isEmail(), body("phone_no").isLength({ min: 10 }),body("username").isLength({min:3}), body("password").isLength({ min: 7 })], async (req, res) => {
     let success = false;
@@ -187,7 +191,6 @@ Router.post("/adminadd", [body("email").isEmail(), body("phone_no").isLength({ m
     }
   });
   
-=======
->>>>>>> 2c643aeb5968436ab81fff38483025fd467ccebd
+
 
 module.exports = Router;

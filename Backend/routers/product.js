@@ -75,4 +75,5 @@ router.delete('/deletepro/:id', fetchseller, async (req, res) => {
 
 
 
+
 module.exports=router
