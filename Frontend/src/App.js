@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import ErrorBoundary from './components/ErrorBoundary.js';
 import Profile from './components/Profile.js';
+import AdminLogin from './components/adminlogin.js';
 
 // import AddProduct from './components/addProduct.js';
 
@@ -34,7 +35,9 @@ progress={progress}
 <Routes>
           
           <Route exact path="/user/signup" element={<LandPage key="Land"/>}/>
-          <Route exact path="/dwds" element={<Signup key="Signup" />}/>
+          <Route exact path="/" element={<AdminLogin/>}/>
+          <Route exact path="/user/signup" element={<Signup key="Signup" />}/>
+
           <Route exact path="/user/login" element={<Login  key="Login"/>}/>
           <Route exact path="/user/profile" element={<Profile/>}/>
 

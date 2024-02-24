@@ -1,10 +1,8 @@
-// Frontend/src/components/adminlogin.jsx
-
 import React, { useState } from 'react';
 import Navbar from './Navbar';
-import 'Frontend/src/components/adminlogin.css';
+import '../adminlogin.css';
 
-export default function Login() {
+export default function AdminLogin() {
   const [adminData, setAdminData] = useState({
     email: '',
     password: '',
@@ -35,6 +33,11 @@ export default function Login() {
       const data = await response.json();
       console.log(data); // You can handle the response data as needed
 
+      // Store the auth token in local storage
+      localStorage.setItem('adminAuthToken', data.authtoken);
+
+      // Show success alert
+      alert('Admin login successful!');
     } catch (error) {
       console.error('Error during login:', error.message);
       // Handle error, show an alert, or set an error state in your component
@@ -53,16 +56,10 @@ export default function Login() {
             <form>
               <label htmlFor="email">Enter Your Admin Email:</label>
               <br />
-              <span>
-                <i className="ri-user-line"></i>
-              </span>
               <input type="text" id="email" name="email" onChange={handleInputChange} />
               <br /><br />
               <label htmlFor="password">Enter Admin Password:</label>
               <br />
-              <span>
-                <i className="ri-lock-password-line"></i>
-              </span>
               <input type="password" id="password" name="password" onChange={handleInputChange} />
               <br />
               <label htmlFor="frgpsw">
