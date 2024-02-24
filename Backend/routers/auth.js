@@ -190,6 +190,40 @@ Router.post("/adminadd", [body("email").isEmail(), body("phone_no").isLength({ m
       res.send(error.message);
     }
   });
+  //route 7 
+
+Router.post("/adminlogin", [body("email").isEmail(), body("password").isLength({ min: 7 })], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { email, password } = req.body;
+
+  try {
+    let admin = await Admin.findOne({ email });
+    if (!admin) {
+      return res.status(400).json({ error: "Invalid credentials" });
+    }
+
+    const passCompare = await bcrypt.compare(password, admin.password);
+    if (!passCompare) {
+      return res.status(400).json({ error: "Invalid credentials" });
+    }
+
+    const data = {
+      admin: {
+        id: admin.id,
+      },
+    };
+
+    const authtoken = jwt.sign(data, JWT_token);
+    res.json({ authtoken });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+}
+});
   
 
 
