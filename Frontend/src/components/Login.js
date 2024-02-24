@@ -53,12 +53,12 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
               <label htmlFor="email">Enter Your Email:</label>
               <br />
-              <span><i className="ri-user-line"></i></span>
+              
               <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
               <br /><br />
               <label htmlFor="password">Enter Your Password:</label>
               <br />
-              <span><i className="ri-lock-password-line"></i></span>
+              
               <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
               <br />
               <label htmlFor="frgpsw"><a className="forgot" href="./forgotpsw ">Forgot Password?</a></label>

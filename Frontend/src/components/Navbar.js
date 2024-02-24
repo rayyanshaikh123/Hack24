@@ -65,7 +65,7 @@ function Navbar() {
 </div>
                 </Link>
                 <Link
-              to="/"
+              to="/user/login"
               className="text-gray-300  hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               <button type="button" className="btn btn-primary">Shop Now</button>
